@@ -47,17 +47,17 @@ values
 insert into collections 
 (collection_name, collection_year)
 values
-('The best of AC/DC', 2005);
-('The best of Luios Armstrong', 2011);
-('The best of Shakira', 2015);
+('The best of AC/DC', 2005),
+('The best of Luios Armstrong', 2011),
+('The best of Shakira', 2015),
 ('The best of David Guetta', 2020);
 
 insert into tracks_collections
 (track_id, collection_id)
 values 
-(1, 2);
-(2, 2);
-(3, 3);
-(4, 4);
-(5, 5);
+(1, 2),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
 (6, 5);
