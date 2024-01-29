@@ -23,14 +23,19 @@ where title like '%my%' or title like '%мой%'
 --1. Количество исполнителей в каждом жанре.
 SELECT genres.name, COUNT(artist_genres.artist_id) AS artist_count FROM genres
 LEFT JOIN artist_genres ON genres.id = artist_genres.genre_id
-LEFT JOIN artists ON artist_genres.artist_id = artists.id;
+LEFT JOIN artists ON artist_genres.artist_id = artists.id
+GROUP BY genres.name;
+
 --2. Количество треков, вошедших в альбомы 2019–2020 годов.
 SELECT COUNT(tracks.id) AS track_count FROM tracks
 LEFT JOIN albums ON tracks.album_id = albums.id
 WHERE albums.year BETWEEN 2019 AND 2020;
+
 --3. Средняя продолжительность треков по каждому альбому.
 SELECT albums.title, AVG(tracks.duration) AS avg_duration FROM albums
-LEFT JOIN tracks ON albums.id = tracks.album_id;
+LEFT JOIN tracks ON albums.id = tracks.album_id
+GROUP BY albums.title;
+
 --4. Все исполнители, которые не выпустили альбомы в 2020 году.
 SELECT artists.name FROM artists
 WHERE artists.name NOT IN (
